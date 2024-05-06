@@ -15,20 +15,14 @@
 // };
 
 import { Router } from "express";
-import {
-  post,
-  update,
-  remove,
-  getAll,
-  getId,
-} from "../controller/UserController.js";
+import UserControler from "../controller/UserController.js"
 
 const router = Router();
 
-router.post("/user", post);
-router.get("/user", getAll);
-router.get("/user/:id", getId);
-router.put("/user/:id", update);
-router.delete("/user/:id", remove);
+router.post("/user", UserControler.post);
+router.get("/user", UserControler.getAll);
+router.get("/user/:id", UserControler.getId);
+router.put("/user/:id",UserControler.update);
+router.delete("/user/:id",UserControler.remove);
 
 export { router };
