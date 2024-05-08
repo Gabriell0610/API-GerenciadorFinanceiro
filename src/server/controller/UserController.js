@@ -1,9 +1,9 @@
 import {
   createUser,
-  getById,
   deleteUser,
+  getByIdUsers,
   getUsers,
-  updateUser,
+  updateUser
 } from "../repositories/user.js";
 
 class UserController {
@@ -27,7 +27,7 @@ class UserController {
 
   async getId(req, res) {
     try {
-      const user = await getById(req.params.id);
+      const user = await getByIdUsers(Number(req.params.id));
       res.status(200).send(user);
     } catch (error) {
       res.status(400).send(error);
@@ -36,7 +36,7 @@ class UserController {
 
   async update(req, res) {
     try {
-      const user = await updateUser(Number(req.params.id), req.body);
+      const user = await updateUser(req.body, Number(req.params.id));
       res.status(200).send(user);
     } catch (error) {
       res.status(400).send(error);
@@ -45,8 +45,8 @@ class UserController {
 
   async remove(req, res) {
     try {
-      await deleteUser(Number(req.params.id), req.body);
-      res.status(200).send(user);
+      await deleteUser(Number(req.params.id));
+      res.status(200).send(`Dado do id ${req.params.id} deletado!!!`);
     } catch (error) {
       res.status(400).send(error);
     }
