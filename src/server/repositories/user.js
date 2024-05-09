@@ -7,13 +7,8 @@ export async function createUser(data) {
       id: true,
       name: true,
       email: true,
-<<<<<<< HEAD
       password: false
     }
-=======
-      password: false,
-    },
->>>>>>> 3e7459506e5c0bbcaca123d69d812a54e61f6c1f
   });
   return user;
 }
@@ -24,13 +19,8 @@ export async function getUsers() {
       id: true,
       name: true,
       email: true,
-<<<<<<< HEAD
       password: false
     }
-=======
-      password: false,
-    },
->>>>>>> 3e7459506e5c0bbcaca123d69d812a54e61f6c1f
   });
   return users;
 }
@@ -66,14 +56,9 @@ export async function updateUser(data, id) {
       id: true,
       name: true,
       email: true,
-<<<<<<< HEAD
       password: false
     }
-=======
-      password: false,
-    },
->>>>>>> 3e7459506e5c0bbcaca123d69d812a54e61f6c1f
-  });
+  })  
   return user;
 }
 
