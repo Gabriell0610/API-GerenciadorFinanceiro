@@ -3,13 +3,20 @@ import {
   deleteUser,
   getByIdUsers,
   getUsers,
-  updateUser
+  updateUser,
 } from "../repositories/user.js";
 
+import bcrypt from "bcrypt";
+import { validation } from "../validation/UserValidation.js";
 class UserController {
   async post(req, res) {
     try {
-      const user = await createUser(req.body);
+      const dataValidation = await validation.parse(req.body);
+
+      req.body.password = bcrypt.hashSync(req.body.password, 10);
+
+      const user = await createUser(dataValidation);
+
       res.status(200).send(user);
     } catch (error) {
       res.status(400).send(error);
