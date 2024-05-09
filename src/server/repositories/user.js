@@ -7,8 +7,8 @@ export async function createUser(data) {
       id: true,
       name: true,
       email: true,
-      password: false
-    }
+      password: false,
+    },
   });
   return user;
 }
@@ -19,8 +19,8 @@ export async function getUsers() {
       id: true,
       name: true,
       email: true,
-      password: false
-    }
+      password: false,
+    },
   });
   return users;
 }
@@ -33,14 +33,8 @@ export async function getByIdUsers(id) {
         id: true,
         name: true,
         email: true,
-        password: false
+        password: false,
       }
-    },
-    select: {
-      id: true,
-      name: true,
-      email: true,
-      password: false,
     },
   });
   return user;
@@ -50,14 +44,16 @@ export async function updateUser(data, id) {
   const user = await prisma.user.update({
     where: {
       id,
+      
     },
     data,
     select: {
       id: true,
       name: true,
       email: true,
-      password: false
-    }
+      password: false,
+    },
+   
   })  
   return user;
 }
