@@ -19,3 +19,18 @@ model User {
   email    String @unique
   password String
 }
+
+model Sales {
+  id                   Int    @id @default(autoincrement())
+  date_purchase        String
+  coin                 String
+  value_purchase       Float
+  unity                Float
+  total_money_purchase Float
+
+  date_sale        String?
+  value_sale       Float?
+  unity_sale       Int?
+  total_money_sale Float?
+  profit           Float?
+}
