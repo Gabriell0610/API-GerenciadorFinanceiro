@@ -1,4 +1,4 @@
-import { getUser } from "../repositories/auth.js";
+import { getUser } from "../repositories/AuthRepositories.js";
 import bcrypt from "bcrypt";
 import { authValidation } from "../validation/AutValidation.js";
 import jwt from "jsonwebtoken";

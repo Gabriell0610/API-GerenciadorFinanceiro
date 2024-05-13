@@ -29,12 +29,12 @@ export async function getByIdUsers(id) {
   const user = await prisma.user.findUnique({
     where: {
       id,
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        password: false,
-      }
+    },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      password: false,
     },
   });
   return user;
@@ -44,7 +44,6 @@ export async function updateUser(data, id) {
   const user = await prisma.user.update({
     where: {
       id,
-      
     },
     data,
     select: {
@@ -53,8 +52,7 @@ export async function updateUser(data, id) {
       email: true,
       password: false,
     },
-   
-  })  
+  });
   return user;
 }
 
