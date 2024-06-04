@@ -18,10 +18,5 @@ router.delete("/user/:id", verifyToken, UserController.remove);
 
 router.post("/login", AuthController.login);
 
-// router.post("/sales", verifyToken, SalesController.post);
-// router.get("/sales", verifyToken, SalesController.getAll);
-// router.get("/sales/:id", verifyToken, SalesController.getId);
-// router.put("/sales/:id", verifyToken, SalesController.update);
-// router.delete("/sales/:id", verifyToken, SalesController.remove);
 
 export { router };

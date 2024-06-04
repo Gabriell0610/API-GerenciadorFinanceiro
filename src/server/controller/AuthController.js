@@ -9,7 +9,7 @@ class AuthController {
       //Validandos os dados
       const data = authValidation.parse(req.body);
 
-      //Enviando o email para o banco de dados
+      //Enviando o email para o banco de dados e pegando o usuário pelo email
       const user = await getUser(data.email);
 
       //Verificando se o usurário retornado do banco de dados não existe
