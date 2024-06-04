@@ -61,3 +61,4 @@ class SalesController {
 }
 
 export default new SalesController();
+

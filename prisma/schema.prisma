@@ -33,4 +33,5 @@ model Sales {
   unity_sale       Int?
   total_money_sale Float?
   profit           Float?
+
 }
