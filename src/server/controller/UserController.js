@@ -16,7 +16,7 @@ class UserController {
       req.body.password = bcrypt.hashSync(req.body.password, 10);
       //Validando os dados do body
       const data = await validation.parse(req.body);
-      //Enviando dados parao banco de dados
+      //Enviando dados para o banco de dados
       const user = await createUser(data);
 
       res.status(200).send(user);
