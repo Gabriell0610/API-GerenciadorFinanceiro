@@ -39,3 +39,15 @@ export async function deleteSale(id) {
   });
   return;
 }
+
+export async function getTotals() {
+    const purchase = await prisma.sales.aggregate({
+      _sum: {
+        total_money_purchase: true,
+      },
+    });
+    console.log(purchase)
+  
+}
+
+

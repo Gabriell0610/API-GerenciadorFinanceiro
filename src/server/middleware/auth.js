@@ -29,7 +29,7 @@ export const verifyToken = async (req, res, next) => {
 
     try {
         const replace = token.replace("Bearer ", "");
-        console.log("Token após replace:", replace);
+      
         const decoded = jwt.verify(replace, process.env.TOKEN_KEY);
 
         next();

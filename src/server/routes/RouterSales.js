@@ -10,4 +10,6 @@ routerSales.get("/sales/:id", verifyToken, SalesController.getId);
 routerSales.put("/sales/:id", verifyToken, SalesController.update);
 routerSales.delete("/sales/:id", verifyToken, SalesController.remove);
 
+routerSales.get("/sales/get/total", verifyToken, SalesController.getTotal);
+
 export { routerSales };

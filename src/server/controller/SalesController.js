@@ -9,6 +9,7 @@ import {
   getByIdSale,
   updateSale,
   deleteSale,
+  getTotals
 } from "../repositories/SalesRepositories.js";
 
 class SalesController {
@@ -42,7 +43,7 @@ class SalesController {
 
   async update(req, res) {
     try {
-      const data = upadteSalesValidation.parse(req.body);
+      const data = salesValidation.parse(req.body);
       const sales = await updateSale(data, Number(req.params.id));
       return res.status(200).send(sales);
     } catch (error) {
@@ -56,6 +57,15 @@ class SalesController {
       return res.status(200).send(`Item ${req.params.id} deletado`);
     } catch (error) {
       return res.status(400).send({ error });
+    }
+  }
+
+  async getTotal(req, res) {
+    try {
+      const total = await getTotals()
+       res.status(200).send(total)
+    } catch (error) {
+       res.status(400).send({error: error})
     }
   }
 }
