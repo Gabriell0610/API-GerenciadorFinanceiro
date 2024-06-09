@@ -9,7 +9,7 @@ import {
   getByIdSale,
   updateSale,
   deleteSale,
-  getTotals
+  getTotals,
 } from "../repositories/SalesRepositories.js";
 
 class SalesController {
@@ -43,7 +43,7 @@ class SalesController {
 
   async update(req, res) {
     try {
-      const data = salesValidation.parse(req.body);
+      const data = upadteSalesValidation.parse(req.body);
       const sales = await updateSale(data, Number(req.params.id));
       return res.status(200).send(sales);
     } catch (error) {
@@ -62,13 +62,12 @@ class SalesController {
 
   async getTotal(req, res) {
     try {
-      const total = await getTotals()
-       res.status(200).send(total)
+      const total = await getTotals();
+      res.status(200).send(total);
     } catch (error) {
-       res.status(400).send({error: error})
+      res.status(400).send({ error: error });
     }
   }
 }
 
 export default new SalesController();
-

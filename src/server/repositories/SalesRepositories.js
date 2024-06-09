@@ -40,13 +40,25 @@ export async function deleteSale(id) {
   return;
 }
 
+//Pegando o total de venda e compra
 export async function getTotals() {
-    const purchase = await prisma.sales.aggregate({
-      _sum: {
-        total_money_purchase: true,
-      },
-    });
-    console.log(purchase)
-  
-}
+  //Fazendo a soma da coluna total de compra de todos os dados que estão na tabela sales
+  const purchase = await prisma.sales.aggregate({
+    _sum: {
+      total_money_purchase: true,
+    },
+  });
 
+  //Fazendo a soma da coluna total de venda de todos os dados que estão na tabela sales
+  const sale = await prisma.sales.aggregate({
+    _sum: {
+      total_money_sale: true,
+    },
+  });
+
+  const purchaseTotal = purchase?._sum?.total_money_purchase;
+  const salesTotal = sale?._sum?.total_money_sale;
+  const profitTotal = salesTotal - purchaseTotal;
+
+  return { purchaseTotal, salesTotal, profitTotal };
+}
