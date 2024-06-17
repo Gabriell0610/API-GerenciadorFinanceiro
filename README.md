@@ -3,9 +3,9 @@
 Esta API foi desenvolvida com o objetivo de estudar as tecnologias Node.js, Express, Prisma, Bcrypt e JWT, com foco na criação de um sistema de autenticação. Esta API será utilizada em um projeto frontend desenvolvido em React.
 
 ### Tecnologias Utilizadas
-- Node.js: Ambiente de execução JavaScript server-side.
-- Express: Framework web para Node.js.
-- Prisma: ORM (Object-Relational Mapping) para Node.js e TypeScript.
+- Node.js:
+- Express: 
+- Prisma: ORM 
 - Bcrypt: Biblioteca para hashing de senhas.
 - JWT (JSON Web Token): Método para autenticação segura através de tokens.
 
